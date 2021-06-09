@@ -22,11 +22,13 @@ jobs:
       run: go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
 
     - name: Build
-      run: ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive     
-    
+      run: |
+        ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive     
+        ls -l      
+
     - uses: actions/upload-artifact@v2
       with:
         name: caddy_linux_amd64_custom
-        path: caddy_linux_amd64_custom
+        path: ./caddy
       
       
