@@ -23,7 +23,7 @@ jobs:
 
     - name: Build
       run: |
-        ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive     
+        ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive --with github.com/caddy-dns/cloudflare
         ls -l      
 
     - uses: actions/upload-artifact@v2
