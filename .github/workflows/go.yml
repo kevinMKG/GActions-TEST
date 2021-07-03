@@ -19,11 +19,13 @@ jobs:
         go-version: 1.15
 
     - name: Use the value
+      run: git clone -b naive https://github.com/klzgrad/forwardproxy
+    - name: get xcaddy
       run: go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
 
     - name: Build
       run: |
-        ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive --with github.com/caddy-dns/cloudflare
+        ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=$PWD/forwardproxy --with github.com/caddy-dns/cloudflare
         ls -l      
 
     - uses: actions/upload-artifact@v2
